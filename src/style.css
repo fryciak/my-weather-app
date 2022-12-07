@@ -23,7 +23,7 @@ hr {
   border: none;
 }
 
-a {
+.github-link {
   text-align: center;
   display: flex;
   margin: 10px auto;

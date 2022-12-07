@@ -26,8 +26,8 @@ hr {
 a {
   text-align: center;
   display: flex;
-  margin: 0 auto;
-  width: 65%;
+  margin: 10px auto;
+  max-width: 500px;
 }
 
 .weather-app {
@@ -35,7 +35,7 @@ a {
   border-color: #d5d5d5;
   border-radius: 5px;
   padding: 30px;
-  margin: 50px 8px 8px 8px;
+  margin: 50px auto 8px auto;
   max-width: 500px;
   background: linear-gradient(
     111.5deg,

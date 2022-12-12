@@ -1,7 +1,7 @@
 body {
   font-family: Rajdhani;
-    background: #f9f7fe;
-    margin-top: 100px;
+  background: #f9f7fe;
+  margin-top: 100px;
 }
 
 h1 {
@@ -20,7 +20,7 @@ li {
 }
 
 hr {
-  height: 2px;
+  height: 1px;
   background-color: #606470;
   border: none;
 }
@@ -42,7 +42,6 @@ hr {
   background-image: url("../images/background 3.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 
 .row-one {
@@ -104,4 +103,8 @@ hr {
 .main-temp a {
   font-size: 20px;
   margin: 0 5px 0 5px;
+}
+
+.form-control {
+  background: #f9f7fe;
 }

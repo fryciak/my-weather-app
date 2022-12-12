@@ -7,6 +7,7 @@ body {
 h1 {
   font-size: 30px;
   margin-bottom: 0;
+  font-weight: 600;
 }
 
 h2 {
@@ -107,4 +108,8 @@ hr {
 
 .form-control {
   background: #f9f7fe;
+}
+
+.form-control {
+  padding: 8px;
 }

@@ -61,7 +61,6 @@ hr {
   border: 1px solid;
   border-radius: 10px;
   padding: 5px 0px 8px 10px;
-
   margin-top: 15px;
 }
 
@@ -77,7 +76,7 @@ hr {
 .weather-icon-large {
   width: 90px;
   position: relative;
-  right: -23px;
+  right: -20px;
 }
 
 .weather-icon-small {
@@ -100,17 +99,12 @@ hr {
   align-items: flex-start;
   margin-top: 20px;
   position: relative;
-  right: -33px;
+  right: -30px;
 }
 
 .main-temp h2 {
   margin: 0 3px 0 0;
   line-height: 1;
-}
-
-.main-temp a {
-  font-size: 20px;
-  margin: 0 3px 0 3px;
 }
 
 .form-control {
@@ -121,16 +115,17 @@ hr {
   padding: 8px;
 }
 
-#temp-c {
+.main-temp .units a {
   font-size: 17px;
   text-decoration: none;
   color: #000000;
+  position: relative;
+  top: 3px;
 }
 
-#temp-f {
-  font-size: 17px;
-  text-decoration: none;
-  color: #000000;
+.main-temp .units span {
+  position: relative;
+  top: 3px;
 }
 
 .main-city {

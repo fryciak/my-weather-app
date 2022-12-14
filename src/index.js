@@ -1,30 +1,30 @@
-let now = new Date();
 let tempInCelcius = 20;
 let inputSelectedCity = "Sydney";
-let keyApi = "7d478f69e1b2f5d563653f13f5f91d76";
+let keyApi = "4ef80dcco70dd6a3bdd23c8ta173fa30";
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+function formatDate() {
+  let date = new Date();
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let day = days[now.getDay()];
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-let minute = now.getMinutes();
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-
-let dayTime = document.querySelector("#day-time");
-dayTime.innerHTML = `${day} ${hour}:${minute}`;
 
 function searchCity(event) {
   event.preventDefault();
@@ -75,27 +75,37 @@ function updateWind(newWind) {
   wind.innerHTML = newWind;
 }
 
+function updateLargeIcon(newLargeIcon, weatherDescription) {
+  console.log(newLargeIcon);
+  let iconLarge = document.querySelector("#icon-large");
+  iconLarge.setAttribute("src", newLargeIcon);
+  iconLarge.setAttribute("alt", `${weatherDescription}`);
+}
+
 function showMainTemp(response) {
   console.log(response);
-  if (inputSelectedCity !== response.data.name) {
-    inputSelectedCity = response.data.name;
+  if (inputSelectedCity !== response.data.city) {
+    inputSelectedCity = response.data.city;
     updateCityName();
   }
-  tempInCelcius = Math.round(response.data.main.temp);
-  let weatherDescription = response.data.weather[0].description;
-  let humidity = `${response.data.main.humidity}%`;
+  tempInCelcius = Math.round(response.data.temperature.current);
+  let date = document.querySelector("#day-time");
+  let weatherDescription = response.data.condition.description;
+  let humidity = `${response.data.temperature.humidity}%`;
   let wind = `${Math.round(response.data.wind.speed)}km/h`;
-  console.log(tempInCelcius);
+  let iconLargeUrl = response.data.condition.icon_url;
   let currentTemp = document.querySelector("h2");
   currentTemp.innerHTML = tempInCelcius;
+  date.innerHTML = formatDate();
   updateWeatherDescription(weatherDescription);
   updateHumidity(humidity);
   updateWind(wind);
+  updateLargeIcon(iconLargeUrl, weatherDescription);
 }
 
 function getWeatherData() {
   console.log(inputSelectedCity);
-  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${inputSelectedCity}&appid=${keyApi}&units=metric`;
+  let urlApi = `https://api.shecodes.io/weather/v1/current?query=${inputSelectedCity}&key=${keyApi}&units=metric`;
   axios.get(urlApi).then(showMainTemp);
 }
 
@@ -104,8 +114,8 @@ getWeatherData();
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "2718952144ed077c12e7c160fb6fc351";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  let apiKey = "4ef80dcco70dd6a3bdd23c8ta173fa30";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
   axios.get(apiUrl).then(showMainTemp);
 }
 

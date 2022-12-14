@@ -82,7 +82,7 @@ function showMainTemp(response) {
     updateCityName();
   }
   tempInCelcius = Math.round(response.data.main.temp);
-  let weatherDescription = response.data.weather[0].main;
+  let weatherDescription = response.data.weather[0].description;
   let humidity = `${response.data.main.humidity}%`;
   let wind = `${Math.round(response.data.wind.speed)}km/h`;
   console.log(tempInCelcius);

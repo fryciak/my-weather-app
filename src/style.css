@@ -132,3 +132,7 @@ hr {
   position: relative;
   top: -23px;
 }
+
+#weather-description {
+  text-transform: capitalize;
+}

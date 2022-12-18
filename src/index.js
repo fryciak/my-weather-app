@@ -38,23 +38,6 @@ function searchCity(event) {
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchCity);
 
-//Celcius
-function changeTempToCelcius(event) {
-  event.preventDefault();
-  updateMainTempValue(tempInCelcius);
-}
-let linkCelcius = document.querySelector("#temp-c");
-linkCelcius.addEventListener("click", changeTempToCelcius);
-
-//Fahrenheit
-function changeTempToFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = Math.round((tempInCelcius * 9) / 5 + 32);
-  updateMainTempValue(fahrenheitTemp);
-}
-let linkFahrenheit = document.querySelector("#temp-f");
-linkFahrenheit.addEventListener("click", changeTempToFahrenheit);
-
 function updateMainTempValue(newTemperature) {
   let h2MainTemp = document.querySelector(".main-temp h2");
   h2MainTemp.innerHTML = newTemperature;
@@ -91,8 +74,8 @@ function showMainTemp(response) {
   tempInCelcius = Math.round(response.data.temperature.current);
   let date = document.querySelector("#day-time");
   let weatherDescription = response.data.condition.description;
-  let humidity = `${response.data.temperature.humidity}%`;
-  let wind = `${Math.round(response.data.wind.speed)}km/h`;
+  let humidity = `Humidity: ${response.data.temperature.humidity}%`;
+  let wind = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
   let iconLargeUrl = response.data.condition.icon_url;
   let currentTemp = document.querySelector("h2");
   currentTemp.innerHTML = tempInCelcius;
@@ -102,6 +85,29 @@ function showMainTemp(response) {
   updateWind(wind);
   updateLargeIcon(iconLargeUrl, weatherDescription);
 }
+
+//Celcius
+function changeTempToCelcius(event) {
+  event.preventDefault();
+  linkCelcius.classList.add("active");
+  linkFahrenheit.classList.remove("active");
+  updateMainTempValue(tempInCelcius);
+}
+
+let linkCelcius = document.querySelector("#temp-c");
+linkCelcius.addEventListener("click", changeTempToCelcius);
+
+//Fahrenheit
+function changeTempToFahrenheit(event) {
+  event.preventDefault();
+  linkCelcius.classList.remove("active");
+  linkFahrenheit.classList.add("active");
+  let fahrenheitTemp = Math.round((tempInCelcius * 9) / 5 + 32);
+  updateMainTempValue(fahrenheitTemp);
+}
+
+let linkFahrenheit = document.querySelector("#temp-f");
+linkFahrenheit.addEventListener("click", changeTempToFahrenheit);
 
 function getWeatherData() {
   console.log(inputSelectedCity);

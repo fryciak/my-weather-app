@@ -27,10 +27,8 @@ hr {
 }
 
 .github-link {
-  text-align: center;
-  display: flex;
-  margin: 10px auto;
-  max-width: 490px;
+  margin: 0 auto;
+  width: 490px;
 }
 
 .weather-app {

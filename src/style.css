@@ -31,6 +31,13 @@ hr {
   width: 490px;
 }
 
+.github-link a {
+  text-decoration: none;
+}
+.github-link a:hover {
+  text-decoration: underline;
+}
+
 .weather-app {
   border: 1px solid;
   border-color: #d5d5d5;
@@ -85,7 +92,7 @@ hr {
   font-size: 16px;
 }
 
-.row-three {
+.weather-forecast {
   display: flex;
   text-align: center;
   background-color: rgba(134, 127, 130, 0.1);

@@ -129,6 +129,10 @@ hr {
   padding: 1px;
 }
 
+.temperature-min{
+  opacity:0.6;
+}
+
 .main-temp {
   display: flex;
   align-items: flex-start;

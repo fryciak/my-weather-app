@@ -104,6 +104,25 @@ hr {
   margin-right: 2px;
 }
 
+.weather-forecast .column-one {
+  line-height: 30px;
+}
+.weather-forecast .column-two {
+  line-height: 30px;
+}
+.weather-forecast .column-three {
+  line-height: 30px;
+}
+.weather-forecast .column-four {
+  line-height: 30px;
+}
+.weather-forecast .column-five {
+  line-height: 30px;
+}
+.weather-forecast .column-six {
+  line-height: 30px;
+}
+
 .main-temp {
   display: flex;
   align-items: flex-start;

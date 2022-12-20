@@ -92,7 +92,7 @@ hr {
   font-size: 16px;
 }
 
-.weather-forecast {
+.row-forecast {
   display: flex;
   text-align: center;
   background-color: rgba(134, 127, 130, 0.1);
@@ -102,35 +102,11 @@ hr {
   margin-top: 10px;
   margin-left: 2px;
   margin-right: 2px;
+  line-height: 30px;
 }
 
-.weather-forecast .column-one {
-  line-height: 30px;
-  padding: 1px;
-}
-.weather-forecast .column-two {
-  line-height: 30px;
-  padding: 1px;
-}
-.weather-forecast .column-three {
-  line-height: 30px;
-  padding: 1px;
-}
-.weather-forecast .column-four {
-  line-height: 30px;
-  padding: 1px;
-}
-.weather-forecast .column-five {
-  line-height: 30px;
-  padding: 1px;
-}
-.weather-forecast .column-six {
-  line-height: 30px;
-  padding: 1px;
-}
-
-.temperature-min{
-  opacity:0.6;
+.temperature-min {
+  opacity: 0.5;
 }
 
 .main-temp {

@@ -63,8 +63,10 @@ function updateLargeIcon(newLargeIcon, weatherDescription) {
   let iconLarge = document.querySelector("#icon-large");
   iconLarge.setAttribute("src", newLargeIcon);
   iconLarge.setAttribute("alt", `${weatherDescription}`);
-}
+}  
 
+
+//response
 function showMainTemp(response) {
   console.log(response);
   if (inputSelectedCity !== response.data.city) {
@@ -137,3 +139,35 @@ function updateCityName() {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${inputSelectedCity}`;
 }
+
+
+//Forecast
+
+function showForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row-forecast">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 column-one">
+            <div class="day">${day}</div>
+
+            <img class="weather-icon" src="images/sun.png" alt="sun" />
+
+            <div class="temperature">
+              <span class="temperature-max">20°</span>
+              <span class="temperature-min">13°</span>
+            </div>
+          </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
+showForecast();
